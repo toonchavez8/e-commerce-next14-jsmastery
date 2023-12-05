@@ -44,7 +44,7 @@ If you have not done so already, you need to have standalone copy of this repo o
 
     git clone -n --depth=1 --filter=tree:0 https://github.com/payloadcms/payload my-project && cd my-project && git sparse-checkout set --no-cone templates/ecommerce && git checkout && rm -rf .git && git init && git add . && git mv -f templates/ecommerce/{.,}* . && git add . && git commit -m "Initial commit"
 
-### Development
+### Get start with Development
 
 1. First [clone the repo](#clone) if you have not done so already
 1. `cd my-project && cp .env.example .env` to copy the example environment variables
@@ -159,20 +159,26 @@ For more details on how to extend this functionality, see the the official [Payl
 To integrate with Stripe, follow these steps:
 
 1. You will first need to create a [Stripe](https://stripe.com) account if you do not already have one.
-1. Retrieve your [Stripe API keys](https://dashboard.stripe.com/test/apikeys) and paste them into your `env`:
+1. Retrieve your [Stripe API keys](https://dashboard.stripe.com/test/apikeys) and paste them into your `env`:.
+
    ```bash
    STRIPE_SECRET_KEY=
    NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=
    ```
+
 1. In another terminal, listen for webhooks (optional):
+
    ```bash
    stripe login # follow the prompts
    yarn stripe:webhooks
    ```
+
 1. Paste the given webhook signing secret into your `env`:
+
    ```bash
    STRIPE_WEBHOOKS_SIGNING_SECRET=
    ```
+
 1. Reboot Payload to ensure that Stripe connects and the webhooks are registered.
 
 ## Checkout
@@ -279,9 +285,9 @@ If you prefer another front-end framework or would like to use Payload as a stan
 
 For more details on how setup a custom server, see the official [Custom Server Example](https://github.com/payloadcms/payload/tree/main/examples/custom-server).
 
-##  Development
+## Development
 
-To spin up this example locally, follow the [Quick Start](#quick-start). Then [Connect Stripe](#connect-stripe) to enable payments, and [Seed](#seed) the database with a few products and pages.
+ follow the [Quick Start](#quick-start) to spin this up localy. Then [Connect Stripe](#connect-stripe) to enable payments, and [Seed](#seed) the database with a few products and pages.
 
 ### Docker
 
